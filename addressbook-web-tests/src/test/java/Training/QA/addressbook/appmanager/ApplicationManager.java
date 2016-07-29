@@ -11,7 +11,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApplicationManager {
 
-  private final GroupHelper groupHelper = new GroupHelper();
+  FirefoxDriver wd;
+
+  private GroupHelper groupHelper;
 
   public static boolean isAlertPresent(FirefoxDriver wd) {
     try {
@@ -23,29 +25,30 @@ public class ApplicationManager {
   }
 
   public void init() {
-    groupHelper.wd = new FirefoxDriver();
-    groupHelper.wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd = new FirefoxDriver();
+    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    groupHelper = new GroupHelper(wd);
     login("admin", "secret");
   }
 
   public void login(String username, String password) {
-    groupHelper.wd.get("http://localhost/addressbook/");
-    groupHelper.wd.findElement(By.id("LoginForm")).click();
-    groupHelper.wd.findElement(By.name("user")).click();
-    groupHelper.wd.findElement(By.name("user")).clear();
-    groupHelper.wd.findElement(By.name("user")).sendKeys(username);
-    groupHelper.wd.findElement(By.name("pass")).click();
-    groupHelper.wd.findElement(By.name("pass")).clear();
-    groupHelper.wd.findElement(By.name("pass")).sendKeys(password);
-    groupHelper.wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+    wd.get("http://localhost/addressbook/");
+    wd.findElement(By.id("LoginForm")).click();
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).click();
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys(password);
+    wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
   }
 
   public void gotoGroupPage() {
-    groupHelper.wd.findElement(By.linkText("groups")).click();
+    wd.findElement(By.linkText("groups")).click();
   }
 
   public void stop() {
-    groupHelper.wd.quit();
+    wd.quit();
   }
 
   public GroupHelper getGroupHelper() {
