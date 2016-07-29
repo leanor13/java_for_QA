@@ -48,4 +48,9 @@ public class ContactHelper extends HelperBase {
   public void confirmContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
+
+  public void alertConfirmContactDeletion() {
+    wd.switchTo().alert().accept();
+
+  }
 }
