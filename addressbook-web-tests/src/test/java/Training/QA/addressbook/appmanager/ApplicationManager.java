@@ -16,6 +16,7 @@ public class ApplicationManager {
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
+  public ContactHelper contactHelper;
 
 
 
@@ -25,6 +26,7 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
     wd.get("http://localhost/addressbook/");
     sessionHelper.login("admin", "secret");
   }
