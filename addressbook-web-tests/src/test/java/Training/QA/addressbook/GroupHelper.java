@@ -1,13 +1,14 @@
-package Training.QA.addressbook.appmanager;
+package Training.QA.addressbook;
 
-import Training.QA.addressbook.model.GroupData;
+import Training.QA.addressbook.appmanager.HelperBase;
+//import Training.QA.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by leanor on 28.07.2016.
  */
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
 
   public GroupHelper(FirefoxDriver wd) {
     super(wd);
