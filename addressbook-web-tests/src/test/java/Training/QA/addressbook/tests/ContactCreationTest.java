@@ -1,5 +1,7 @@
-package Training.QA.addressbook;
+package Training.QA.addressbook.tests;
 
+import Training.QA.addressbook.model.ContactData;
+import Training.QA.addressbook.model.LoginData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
