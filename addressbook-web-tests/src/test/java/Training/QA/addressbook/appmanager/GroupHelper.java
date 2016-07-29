@@ -36,11 +36,11 @@ public class GroupHelper extends HelperBase {
     click(By.name("delete"));
   }
 
-  public void selectGroup() {
-    if (!wd.findElement(By.name("selected[]")).isSelected()) {
+  public void selectCheckbox() {if (!wd.findElement(By.name("selected[]")).isSelected()) {
       click(By.name("selected[]"));
     }
   }
+
 
   public void initGroupModification() {
     click(By.name("edit"));

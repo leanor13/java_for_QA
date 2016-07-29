@@ -15,7 +15,7 @@ public class ContactHelper extends HelperBase {
 
 
   public void submitContactCreation() {
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
   public void fillContactForm(ContactData contactData) {
@@ -35,4 +35,10 @@ public class ContactHelper extends HelperBase {
   public void initAddContact() {
     click(By.linkText("add new"));
   }
+
+  public void deleteContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
+
 }

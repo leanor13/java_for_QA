@@ -24,6 +24,11 @@ public class HelperBase {
     wd.findElement(locator).sendKeys(text);
   }
 
+  public void selectCheckbox() {if (!wd.findElement(By.name("selected[]")).isSelected()) {
+    click(By.name("selected[]"));
+  }
+  }
+
   public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
