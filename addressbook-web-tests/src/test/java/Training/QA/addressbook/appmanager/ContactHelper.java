@@ -79,5 +79,6 @@ public class ContactHelper extends HelperBase {
     initAddContact();
     fillContactForm(contact, true);
     submitContactCreation();
+
   }
 }
