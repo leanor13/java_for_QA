@@ -34,9 +34,16 @@ public class ContactHelper extends HelperBase {
     type(By.name("work"),contactData.getWorkPhoneNumber());
     type(By.name("email"),contactData.getEmail());
 
+// Проверяем, контакт создается или изменяется.
+// Если создается, но задачи выбрать группу нет (параметр contactData.getGroup() == null), проверяем просто наличие поля new_group
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroup() != null) {
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
+      else {
+        Assert.assertTrue(isElementPresent(By.name("new_group")));
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -62,5 +69,15 @@ public class ContactHelper extends HelperBase {
   public void alertConfirmContactDeletion() {
     wd.switchTo().alert().accept();
 
+  }
+
+  public boolean isThereContact() {
+    return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
+
+  public void createContact(ContactData contact) {
+    initAddContact();
+    fillContactForm(contact, true);
+    submitContactCreation();
   }
 }
