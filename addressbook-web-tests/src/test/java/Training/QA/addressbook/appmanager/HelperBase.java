@@ -33,8 +33,8 @@ public class HelperBase {
     }
   }
 
-  public void selectCheckbox() {if (!wd.findElement(By.name("selected[]")).isSelected()) {
-    click(By.name("selected[]"));
+  public void selectCheckbox(int index) {if (!wd.findElement(By.name("selected[]")).isSelected()) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
   }
 

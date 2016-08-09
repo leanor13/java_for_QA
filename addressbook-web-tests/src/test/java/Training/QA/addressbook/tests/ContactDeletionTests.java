@@ -16,7 +16,7 @@ public class ContactDeletionTests extends TestBase {
               "5849395", "+93927298403", "95040843", "ttt@kmkmk.tt", null));
     }
     app.getNavigationHelper().gotoHome();
-    app.getContactHelper().selectCheckbox();
+    app.getContactHelper().selectCheckbox(0);
     app.getContactHelper().deleteContact();
     app.getContactHelper().alertConfirmContactDeletion();
     app.getNavigationHelper().gotoHome();
