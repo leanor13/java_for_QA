@@ -1,7 +1,11 @@
 package Training.QA.addressbook.tests;
 
 import Training.QA.addressbook.model.ContactData;
+import Training.QA.addressbook.model.GroupData;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Comparator;
 
 /**
  * Created by leanor on 29.07.2016.
@@ -23,6 +27,7 @@ public class ContactModificationTest extends TestBase {
             "95040843", "ttt@kmkmk.tt", null), false);
     app.getContactHelper().confirmContactModification();
     app.getNavigationHelper().gotoHome();
+
 
   }
 
